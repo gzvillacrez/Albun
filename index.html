@@ -1096,6 +1096,203 @@
             opacity: 0.8;
         }
 
+        /* SECCIÓN DE MÚSICA */
+        .music-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 229, 245, 0.95) 100%);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(193, 24, 91, 0.15);
+            border: 2px solid rgba(193, 24, 91, 0.1);
+        }
+
+        .music-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #c2185b;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .music-input-group {
+            margin-bottom: 25px;
+        }
+
+        .music-input-group label {
+            display: block;
+            font-size: 1.1em;
+            color: #5a3a5a;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .music-input-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #f48fb1;
+            border-radius: 12px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05em;
+            color: #5a3a5a;
+            background: rgba(244, 143, 177, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .music-input-group input:focus {
+            outline: none;
+            border-color: #c2185b;
+            background: rgba(244, 143, 177, 0.1);
+            box-shadow: 0 0 20px rgba(193, 24, 91, 0.2);
+        }
+
+        .music-help {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid #4CAF50;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+            color: #5a3a5a;
+            line-height: 1.6;
+        }
+
+        .music-help strong {
+            color: #4CAF50;
+        }
+
+        .music-preview {
+            background: rgba(244, 143, 177, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 2px solid #f48fb1;
+        }
+
+        .music-preview h3 {
+            font-family: 'Playfair Display', serif;
+            color: #c2185b;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .music-player {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .music-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .music-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .music-save-btn {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .music-save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .music-clear-btn {
+            background: linear-gradient(135deg, #f48fb1 0%, #ec407a 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(193, 24, 91, 0.3);
+        }
+
+        .music-clear-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(193, 24, 91, 0.4);
+        }
+
+        .music-volume-control {
+            margin-bottom: 15px;
+        }
+
+        .music-volume-control label {
+            display: block;
+            font-size: 1em;
+            color: #5a3a5a;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .volume-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(244, 143, 177, 0.2);
+            outline: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f48fb1 0%, #ec407a 100%);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(193, 24, 91, 0.3);
+        }
+
+        .volume-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f48fb1 0%, #ec407a 100%);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(193, 24, 91, 0.3);
+            border: none;
+        }
+
+        .music-status {
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .music-status.active {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+        }
+
+        .music-status.inactive {
+            background: rgba(158, 158, 158, 0.1);
+            color: #757575;
+            border: 1px solid #9e9e9e;
+        }
+
+        .youtube-info {
+            background: rgba(255, 193, 7, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #FFC107;
+            font-size: 0.9em;
+            color: #5a3a5a;
+        }
+
         .footer {
             text-align: center;
             margin-top: 60px;
@@ -1351,6 +1548,13 @@
                     </div>
 
                     <div class="format-card">
+                        <div class="format-icon">🎵</div>
+                        <h2>Música de Fondo</h2>
+                        <p>Agrega una canción para la presentación</p>
+                        <button class="format-btn" onclick="showView('music')">Configurar</button>
+                    </div>
+
+                    <div class="format-card">
                         <div class="format-icon">🎠</div>
                         <h2>Carrusel</h2>
                         <p>Disfruta nuestros momentos en una presentación deslizante</p>
@@ -1461,6 +1665,52 @@
                     </div>
                 </div>
 
+                <!-- VISTA DE MÚSICA -->
+                <div id="musicView" class="hidden">
+                    <div class="viewer-container">
+                        <button class="back-btn" onclick="backToMenu()">← Volver al Menú</button>
+                        
+                        <div class="music-section">
+                            <h2>🎵 Música de Fondo para la Presentación</h2>
+                            
+                            <div class="music-help">
+                                <strong>📺 ¿Cómo agregar música?</strong><br>
+                                1. Abre un video en YouTube<br>
+                                2. Copia la URL del navegador (ej: https://www.youtube.com/watch?v=...)<br>
+                                3. Pégala en el campo de abajo<br>
+                                4. ¡La música sonará en tus presentaciones!
+                            </div>
+
+                            <div class="music-input-group">
+                                <label for="musicUrl">🎬 URL de YouTube:</label>
+                                <input type="text" id="musicUrl" placeholder="https://www.youtube.com/watch?v=... o https://youtu.be/...">
+                            </div>
+
+                            <div class="music-volume-control">
+                                <label>🔊 Volumen: <span id="volumeDisplay">70</span>%</label>
+                                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="70" oninput="updateVolumeDisplay(this.value)">
+                            </div>
+
+                            <div class="music-preview">
+                                <h3>🎧 Vista Previa</h3>
+                                <div id="musicEmbed"></div>
+                                <div id="musicStatus" class="music-status inactive">
+                                    🔇 Sin música configurada
+                                </div>
+                            </div>
+
+                            <div class="music-controls">
+                                <button class="music-btn music-save-btn" onclick="saveBackgroundMusic()">💾 Guardar Música</button>
+                                <button class="music-btn music-clear-btn" onclick="clearBackgroundMusic()">🗑️ Eliminar Música</button>
+                            </div>
+
+                            <div class="youtube-info">
+                                💡 <strong>Consejo:</strong> Busca canciones sin copyright en YouTube Audio Library para evitar problemas legales.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- VISTA CARRUSEL -->
                 <div id="carouselView" class="hidden">
                     <div class="viewer-container">
@@ -1538,6 +1788,8 @@
         let currentUser = null;
         let currentSlide = 0;
         let photos = [];
+        let backgroundMusic = null;
+        let audioPlayer = null;
 
         // RELOJ DE CORAZÓN
         function updateHeartClock() {
@@ -1688,12 +1940,18 @@
                     document.getElementById('videoDate').value = today;
                     document.getElementById('uploadView').classList.remove('hidden');
                     break;
+                case 'music':
+                    loadMusicSettings();
+                    document.getElementById('musicView').classList.remove('hidden');
+                    break;
                 case 'carousel':
                     loadCarousel();
+                    playBackgroundMusic();
                     document.getElementById('carouselView').classList.remove('hidden');
                     break;
                 case 'grid':
                     loadGrid();
+                    playBackgroundMusic();
                     document.getElementById('gridView').classList.remove('hidden');
                     break;
             }
@@ -1703,6 +1961,177 @@
             document.getElementById('mainMenu').classList.remove('hidden');
             document.querySelectorAll('[id$="View"]').forEach(el => el.classList.add('hidden'));
             currentSlide = 0;
+            stopBackgroundMusic();
+        }
+
+        // MÚSICA DE FONDO
+        function extractYouTubeId(url) {
+            // Extraer ID de YouTube de diferentes formatos
+            let videoId = '';
+            
+            if (url.includes('youtube.com/watch?v=')) {
+                videoId = url.split('v=')[1].split('&')[0];
+            } else if (url.includes('youtu.be/')) {
+                videoId = url.split('youtu.be/')[1].split('?')[0];
+            } else if (url.includes('youtube.com/embed/')) {
+                videoId = url.split('/embed/')[1].split('?')[0];
+            }
+            
+            return videoId;
+        }
+
+        function loadMusicSettings() {
+            const stored = localStorage.getItem('backgroundMusic');
+            if (stored) {
+                const music = JSON.parse(stored);
+                document.getElementById('musicUrl').value = music.url;
+                document.getElementById('volumeSlider').value = music.volume || 70;
+                document.getElementById('volumeDisplay').textContent = music.volume || 70;
+                updateMusicEmbed(music.url);
+                updateMusicStatus(true, music.url);
+            }
+        }
+
+        function updateMusicEmbed(url) {
+            const embed = document.getElementById('musicEmbed');
+            if (!url) {
+                embed.innerHTML = '';
+                return;
+            }
+
+            const videoId = extractYouTubeId(url);
+            if (videoId) {
+                embed.innerHTML = `
+                    <iframe 
+                        width="100%" 
+                        height="300" 
+                        src="https://www.youtube.com/embed/${videoId}" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        style="border-radius: 10px;">
+                    </iframe>
+                `;
+            } else {
+                embed.innerHTML = '<p style="color: #f44336; text-align: center;">❌ URL de YouTube no válida</p>';
+            }
+        }
+
+        function updateMusicStatus(active, url = '') {
+            const status = document.getElementById('musicStatus');
+            if (active && url) {
+                status.className = 'music-status active';
+                status.innerHTML = '🎵 ¡Música configurada! Sonará en carrusel y rejilla';
+            } else {
+                status.className = 'music-status inactive';
+                status.innerHTML = '🔇 Sin música configurada';
+            }
+        }
+
+        function updateVolumeDisplay(value) {
+            document.getElementById('volumeDisplay').textContent = value;
+        }
+
+        function saveBackgroundMusic() {
+            const url = document.getElementById('musicUrl').value.trim();
+            const volume = document.getElementById('volumeSlider').value;
+
+            if (!url) {
+                alert('❌ Por favor ingresa una URL de YouTube');
+                return;
+            }
+
+            const videoId = extractYouTubeId(url);
+            if (!videoId) {
+                alert('❌ URL de YouTube no válida. Formatos válidos:\n• https://www.youtube.com/watch?v=...\n• https://youtu.be/...');
+                return;
+            }
+
+            const musicData = {
+                url: url,
+                videoId: videoId,
+                volume: volume,
+                savedDate: new Date().toISOString()
+            };
+
+            localStorage.setItem('backgroundMusic', JSON.stringify(musicData));
+            backgroundMusic = musicData;
+
+            updateMusicEmbed(url);
+            updateMusicStatus(true, url);
+
+            // Mostrar confirmación
+            const status = document.getElementById('musicStatus');
+            const originalContent = status.innerHTML;
+            status.innerHTML = '✅ ¡Música guardada exitosamente!';
+            status.style.background = 'rgba(76, 175, 80, 0.2)';
+            status.style.color = '#4CAF50';
+
+            setTimeout(() => {
+                status.innerHTML = originalContent;
+                status.style.background = '';
+                status.style.color = '';
+                updateMusicStatus(true, url);
+            }, 3000);
+        }
+
+        function clearBackgroundMusic() {
+            if (confirm('¿Estás seguro de que quieres eliminar la música de fondo?')) {
+                localStorage.removeItem('backgroundMusic');
+                backgroundMusic = null;
+                document.getElementById('musicUrl').value = '';
+                document.getElementById('musicEmbed').innerHTML = '';
+                updateMusicStatus(false);
+                stopBackgroundMusic();
+
+                const status = document.getElementById('musicStatus');
+                const originalContent = status.innerHTML;
+                status.innerHTML = '✅ Música eliminada';
+                status.style.background = 'rgba(255, 193, 7, 0.2)';
+                status.style.color = '#FFC107';
+
+                setTimeout(() => {
+                    status.innerHTML = originalContent;
+                    status.style.background = '';
+                    status.style.color = '';
+                    updateMusicStatus(false);
+                }, 2000);
+            }
+        }
+
+        function playBackgroundMusic() {
+            const stored = localStorage.getItem('backgroundMusic');
+            if (!stored) return;
+
+            backgroundMusic = JSON.parse(stored);
+            const videoId = backgroundMusic.videoId;
+
+            // Detener audio anterior si existe
+            if (audioPlayer) {
+                audioPlayer.pause();
+            }
+
+            // Crear reproductor de audio con YouTube
+            const audioUrl = `https://www.youtube.com/embed/${videoId}`;
+            
+            // Crear iframe oculto para reproducción
+            let iframe = document.getElementById('hidden-audio-player');
+            if (!iframe) {
+                iframe = document.createElement('iframe');
+                iframe.id = 'hidden-audio-player';
+                iframe.style.display = 'none';
+                iframe.allow = 'autoplay';
+                document.body.appendChild(iframe);
+            }
+
+            iframe.src = `${audioUrl}?autoplay=1&controls=0&loop=1&playlist=${videoId}`;
+        }
+
+        function stopBackgroundMusic() {
+            const iframe = document.getElementById('hidden-audio-player');
+            if (iframe) {
+                iframe.src = '';
+            }
         }
 
         // CARGA DE FOTOS Y VIDEOS
