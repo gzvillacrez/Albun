@@ -260,10 +260,6 @@
             border-radius: 10px;
         }
 
-        .roses-counter::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #ec407a 0%, #c2185b 100%);
-        }
-
         /* ESTILOS DEL LOGIN */
         .login-container {
             display: flex;
@@ -469,6 +465,8 @@
         .format-card:nth-child(4) { animation-delay: 0.4s; }
         .format-card:nth-child(5) { animation-delay: 0.5s; }
         .format-card:nth-child(6) { animation-delay: 0.6s; }
+        .format-card:nth-child(7) { animation-delay: 0.7s; }
+        .format-card:nth-child(8) { animation-delay: 0.8s; }
 
         .format-card:hover {
             transform: translateY(-15px) scale(1.05);
@@ -569,337 +567,6 @@
         .back-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(193, 24, 91, 0.4);
-        }
-
-        /* CARRUSEL */
-        .carousel {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .carousel-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-        }
-
-        .carousel-slide img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 15px;
-            object-fit: contain;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .carousel-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .carousel-btn {
-            padding: 10px 25px;
-            background: linear-gradient(135deg, #f48fb1 0%, #ec407a 100%);
-            color: white;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.95em;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 12px rgba(193, 24, 91, 0.3);
-            font-weight: 600;
-        }
-
-        .carousel-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .carousel-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .slide-counter {
-            font-size: 1em;
-            color: #c2185b;
-            font-weight: 600;
-            min-width: 80px;
-            text-align: center;
-        }
-
-        .slide-info {
-            text-align: center;
-            padding: 20px;
-            background: rgba(244, 143, 177, 0.05);
-            border-radius: 15px;
-            margin-top: 20px;
-            border: 1px solid rgba(244, 143, 177, 0.2);
-        }
-
-        .slide-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6em;
-            color: #c2185b;
-            margin-bottom: 8px;
-        }
-
-        .slide-date {
-            font-size: 0.95em;
-            color: #8e3b5c;
-            margin-bottom: 10px;
-        }
-
-        .slide-message {
-            font-size: 1.05em;
-            color: #5a3a5a;
-            font-style: italic;
-            line-height: 1.6;
-        }
-
-        /* REJILLA */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .grid-item {
-            background: white;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(193, 24, 91, 0.15);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
-            animation: fadeIn 0.6s ease-out backwards;
-        }
-
-        .grid-item:nth-child(1) { animation-delay: 0.1s; }
-        .grid-item:nth-child(2) { animation-delay: 0.15s; }
-        .grid-item:nth-child(3) { animation-delay: 0.2s; }
-        .grid-item:nth-child(4) { animation-delay: 0.25s; }
-        .grid-item:nth-child(5) { animation-delay: 0.3s; }
-        .grid-item:nth-child(6) { animation-delay: 0.35s; }
-
-        .grid-item:hover {
-            transform: translateY(-12px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(193, 24, 91, 0.25);
-        }
-
-        .grid-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .grid-info {
-            padding: 18px;
-            background: white;
-        }
-
-        .grid-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15em;
-            color: #c2185b;
-            margin-bottom: 6px;
-        }
-
-        .grid-date {
-            font-size: 0.85em;
-            color: #8e3b5c;
-        }
-
-        /* MURO */
-        .wall-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
-        .wall-item {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(193, 24, 91, 0.15);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
-            animation: fadeIn 0.6s ease-out backwards;
-            transform: rotate(var(--rotation));
-        }
-
-        .wall-item:nth-child(1) { --rotation: -3deg; animation-delay: 0.05s; }
-        .wall-item:nth-child(2) { --rotation: 2deg; animation-delay: 0.1s; }
-        .wall-item:nth-child(3) { --rotation: -2deg; animation-delay: 0.15s; }
-        .wall-item:nth-child(4) { --rotation: 3deg; animation-delay: 0.2s; }
-        .wall-item:nth-child(5) { --rotation: -1deg; animation-delay: 0.25s; }
-        .wall-item:nth-child(6) { --rotation: 2.5deg; animation-delay: 0.3s; }
-
-        .wall-item:hover {
-            transform: rotate(0deg) scale(1.1) translateY(-5px);
-            box-shadow: 0 20px 50px rgba(193, 24, 91, 0.25);
-            z-index: 10;
-        }
-
-        .wall-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* CÍRCULOS */
-        .spiral-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .spiral-item {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(193, 24, 91, 0.15);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
-            animation: fadeIn 0.6s ease-out backwards;
-            border: 5px solid rgba(244, 143, 177, 0.2);
-        }
-
-        .spiral-item:nth-child(1) { animation-delay: 0.05s; }
-        .spiral-item:nth-child(2) { animation-delay: 0.1s; }
-        .spiral-item:nth-child(3) { animation-delay: 0.15s; }
-        .spiral-item:nth-child(4) { animation-delay: 0.2s; }
-        .spiral-item:nth-child(5) { animation-delay: 0.25s; }
-        .spiral-item:nth-child(6) { animation-delay: 0.3s; }
-
-        .spiral-item:hover {
-            transform: scale(1.15);
-            box-shadow: 0 20px 50px rgba(193, 24, 91, 0.3);
-            border-color: #f48fb1;
-        }
-
-        .spiral-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* GALERÍA CASCADA */
-        .gallery-full {
-            columns: 3;
-            column-gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .gallery-item {
-            break-inside: avoid;
-            margin-bottom: 25px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(193, 24, 91, 0.15);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
-            animation: fadeIn 0.6s ease-out backwards;
-        }
-
-        .gallery-item:nth-child(1) { animation-delay: 0.05s; }
-        .gallery-item:nth-child(2) { animation-delay: 0.1s; }
-        .gallery-item:nth-child(3) { animation-delay: 0.15s; }
-        .gallery-item:nth-child(4) { animation-delay: 0.2s; }
-        .gallery-item:nth-child(5) { animation-delay: 0.25s; }
-        .gallery-item:nth-child(6) { animation-delay: 0.3s; }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(193, 24, 91, 0.25);
-        }
-
-        .gallery-image {
-            width: 100%;
-            display: block;
-            border-radius: 15px;
-        }
-
-        /* ABANICO 3D */
-        .fan-container {
-            perspective: 1000px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 600px;
-            position: relative;
-            margin-bottom: 40px;
-        }
-
-        .fan-item {
-            position: absolute;
-            width: 280px;
-            height: 350px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            transform-style: preserve-3d;
-        }
-
-        .fan-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .fan-item:hover {
-            transform: scale(1.08);
-            z-index: 100;
-        }
-
-        .fan-item.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #ad1457;
-            grid-column: 1 / -1;
-        }
-
-        .empty-state h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2em;
-            margin-bottom: 15px;
-        }
-
-        .empty-state p {
-            font-size: 1.1em;
-            opacity: 0.8;
         }
 
         /* FORMULARIO DE CARGA */
@@ -1021,6 +688,7 @@
             margin-bottom: 20px;
             font-size: 0.95em;
             display: none;
+            animation: slideDown 0.3s ease-out;
         }
 
         .message.success {
@@ -1037,68 +705,189 @@
             display: block;
         }
 
-        .uploaded-items {
+        /* PREVISUALIZACIÓN */
+        .preview-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
             margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(244, 143, 177, 0.2);
         }
 
-        .uploaded-item {
-            background: white;
-            border-radius: 15px;
+        .preview-item {
+            position: relative;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(193, 24, 91, 0.15);
+            box-shadow: 0 5px 15px rgba(193, 24, 91, 0.15);
             transition: all 0.3s ease;
+            animation: zoomIn 0.5s ease-out;
         }
 
-        .uploaded-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(193, 24, 91, 0.25);
+        .preview-item:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 25px rgba(193, 24, 91, 0.25);
         }
 
-        .uploaded-item img,
-        .uploaded-item video {
+        .preview-item img,
+        .preview-item video {
             width: 100%;
-            height: 200px;
+            height: 150px;
             object-fit: cover;
+            display: block;
         }
 
-        .uploaded-info {
-            padding: 15px;
+        .preview-delete {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(244, 67, 54, 0.9);
+            color: white;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.2s ease;
+            font-weight: bold;
+        }
+
+        .preview-delete:hover {
+            background: rgba(244, 67, 54, 1);
+            transform: scale(1.1);
+        }
+
+        .preview-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 8px;
+            font-size: 0.8em;
+            text-align: center;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* MODAL DE COMPARTIR */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
             background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
         }
 
-        .uploaded-title {
+        .modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.05em;
+            font-size: 2em;
             color: #c2185b;
-            margin-bottom: 5px;
-            word-break: break-word;
-        }
-
-        .uploaded-date {
-            font-size: 0.85em;
-            color: #8e3b5c;
             margin-bottom: 10px;
         }
 
-        .delete-item-btn {
+        .modal-header p {
+            color: #8e3b5c;
+            font-size: 0.95em;
+        }
+
+        .share-url {
+            background: rgba(244, 143, 177, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #f48fb1;
+        }
+
+        .share-url input {
             width: 100%;
-            padding: 8px;
-            background: linear-gradient(135deg, #ec407a 0%, #c2185b 100%);
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9em;
+            background: white;
+            color: #5a3a5a;
+            margin-bottom: 10px;
+        }
+
+        .copy-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
             color: white;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
             font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1em;
         }
 
-        .delete-item-btn:hover {
+        .copy-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(193, 24, 91, 0.3);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .copy-btn.copied {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ec407a 0%, #c2185b 100%);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .close-modal:hover {
+            transform: scale(1.1);
         }
 
         .tabs-upload {
@@ -1140,6 +929,173 @@
             display: block;
         }
 
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img,
+        .carousel-slide video {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 15px;
+            object-fit: contain;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .carousel-btn {
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #f48fb1 0%, #ec407a 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 12px rgba(193, 24, 91, 0.3);
+            font-weight: 600;
+        }
+
+        .carousel-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            font-size: 1em;
+            color: #c2185b;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .slide-info {
+            text-align: center;
+            padding: 20px;
+            background: rgba(244, 143, 177, 0.05);
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 1px solid rgba(244, 143, 177, 0.2);
+        }
+
+        .slide-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6em;
+            color: #c2185b;
+            margin-bottom: 8px;
+        }
+
+        .slide-date {
+            font-size: 0.95em;
+            color: #8e3b5c;
+            margin-bottom: 10px;
+        }
+
+        .slide-message {
+            font-size: 1.05em;
+            color: #5a3a5a;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .grid-item {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(193, 24, 91, 0.15);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            animation: fadeIn 0.6s ease-out backwards;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(193, 24, 91, 0.25);
+        }
+
+        .grid-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .grid-info {
+            padding: 18px;
+            background: white;
+        }
+
+        .grid-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15em;
+            color: #c2185b;
+            margin-bottom: 6px;
+        }
+
+        .grid-date {
+            font-size: 0.85em;
+            color: #8e3b5c;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #ad1457;
+            grid-column: 1 / -1;
+        }
+
+        .empty-state h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+
+        .empty-state p {
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+
         .footer {
             text-align: center;
             margin-top: 60px;
@@ -1147,66 +1103,6 @@
             color: #ad1457;
             font-size: 0.95em;
             opacity: 0.8;
-        }
-
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .modal.show {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            position: relative;
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            max-width: 90%;
-            max-height: 90%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-image {
-            max-width: 100%;
-            max-height: 70vh;
-            object-fit: contain;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #ec407a 0%, #c2185b 100%);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5em;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .close-modal:hover {
-            transform: scale(1.1);
         }
 
         @keyframes slideUp {
@@ -1280,10 +1176,6 @@
                 font-size: 2.2em;
             }
 
-            .gallery-full {
-                columns: 1;
-            }
-
             .carousel {
                 height: 350px;
             }
@@ -1292,31 +1184,13 @@
                 padding: 20px;
             }
 
-            .carousel-slide img {
+            .carousel-slide img,
+            .carousel-slide video {
                 max-height: 80%;
-            }
-
-            .fan-container {
-                height: 400px;
-            }
-
-            .fan-item {
-                width: 200px;
-                height: 250px;
             }
 
             .grid-container {
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            }
-
-            .spiral-item {
-                width: 140px;
-                height: 140px;
-            }
-
-            .wall-item {
-                width: 150px;
-                height: 150px;
             }
 
             .format-options {
@@ -1362,6 +1236,10 @@
             .viewer-container {
                 padding: 25px;
             }
+
+            .preview-container {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
         }
 
         @media (max-width: 480px) {
@@ -1386,6 +1264,11 @@
             .roses-counter {
                 padding: 12px 15px;
                 max-width: 150px;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 30px 20px;
             }
         }
     </style>
@@ -1423,9 +1306,7 @@
     <!-- LOGIN -->
     <div id="loginContainer" class="login-container">
         <div class="login-box">
-            <h1>
-                💕 Nuestro Amor 💕
-            </h1>
+            <h1>💕 Nuestro Amor 💕</h1>
             <div class="heart-icon">💗</div>
             <p class="login-subtitle">Galería Compartida Especial</p>
 
@@ -1454,9 +1335,7 @@
         <div class="main-content">
             <div class="container">
                 <div class="header">
-                    <h1>
-                        🌹 Nuestro Álbum Compartido 🌹
-                    </h1>
+                    <h1>🌹 Nuestro Álbum Compartido 🌹</h1>
                     <div class="user-info">
                         Bienvenido <span id="userName">REY</span> 💕
                     </div>
@@ -1479,13 +1358,6 @@
                     </div>
 
                     <div class="format-card">
-                        <div class="format-icon">🪭</div>
-                        <h2>Abanico 3D</h2>
-                        <p>Fotos en perspectiva elegante</p>
-                        <button class="format-btn" onclick="showView('fan')">Ver</button>
-                    </div>
-
-                    <div class="format-card">
                         <div class="format-icon">📊</div>
                         <h2>Rejilla</h2>
                         <p>Galería ordenada y moderna</p>
@@ -1493,24 +1365,10 @@
                     </div>
 
                     <div class="format-card">
-                        <div class="format-icon">🧱</div>
-                        <h2>Muro</h2>
-                        <p>Fotos desalineadas naturalmente</p>
-                        <button class="format-btn" onclick="showView('wall')">Ver</button>
-                    </div>
-
-                    <div class="format-card">
-                        <div class="format-icon">⭕</div>
-                        <h2>Círculos</h2>
-                        <p>Fotos en formato circular</p>
-                        <button class="format-btn" onclick="showView('spiral')">Ver</button>
-                    </div>
-
-                    <div class="format-card">
-                        <div class="format-icon">📑</div>
-                        <h2>Cascada</h2>
-                        <p>Galería en cascada natural</p>
-                        <button class="format-btn" onclick="showView('masonry')">Ver</button>
+                        <div class="format-icon">🔗</div>
+                        <h2>Álbum Público</h2>
+                        <p>Comparte tu álbum con una URL pública</p>
+                        <button class="format-btn" onclick="showShareModal()">Compartir</button>
                     </div>
                 </div>
 
@@ -1555,10 +1413,9 @@
                                         </div>
                                     </div>
 
+                                    <div id="photoMessage" class="message"></div>
                                     <button type="submit" class="submit-btn">💾 Guardar Foto</button>
                                 </form>
-
-                                <div id="photoMessage" class="message"></div>
                             </div>
 
                             <!-- TAB VIDEOS -->
@@ -1589,10 +1446,9 @@
                                         </div>
                                     </div>
 
+                                    <div id="videoMessage" class="message"></div>
                                     <button type="submit" class="submit-btn">🎬 Guardar Video</button>
                                 </form>
-
-                                <div id="videoMessage" class="message"></div>
                             </div>
                         </div>
 
@@ -1600,7 +1456,7 @@
                             <h2 style="text-align: center; color: #c2185b; margin-top: 50px; margin-bottom: 30px; font-family: 'Playfair Display', serif; font-size: 1.8em;">
                                 📷 Contenido Cargado
                             </h2>
-                            <div class="uploaded-items" id="uploadedItems"></div>
+                            <div class="preview-container" id="uploadedItems"></div>
                         </div>
                     </div>
                 </div>
@@ -1619,14 +1475,6 @@
                     </div>
                 </div>
 
-                <!-- VISTA ABANICO -->
-                <div id="fanView" class="hidden">
-                    <div class="viewer-container">
-                        <button class="back-btn" onclick="backToMenu()">← Volver al Menú</button>
-                        <div class="fan-container" id="fanContainer"></div>
-                    </div>
-                </div>
-
                 <!-- VISTA REJILLA -->
                 <div id="gridView" class="hidden">
                     <div class="viewer-container">
@@ -1635,36 +1483,26 @@
                     </div>
                 </div>
 
-                <!-- VISTA MURO -->
-                <div id="wallView" class="hidden">
-                    <div class="viewer-container">
-                        <button class="back-btn" onclick="backToMenu()">← Volver al Menú</button>
-                        <div class="wall-container" id="wallContainer"></div>
-                    </div>
-                </div>
-
-                <!-- VISTA CÍRCULOS -->
-                <div id="spiralView" class="hidden">
-                    <div class="viewer-container">
-                        <button class="back-btn" onclick="backToMenu()">← Volver al Menú</button>
-                        <div class="spiral-container" id="spiralContainer"></div>
-                    </div>
-                </div>
-
-                <!-- VISTA CASCADA -->
-                <div id="masonryView" class="hidden">
-                    <div class="viewer-container">
-                        <button class="back-btn" onclick="backToMenu()">← Volver al Menú</button>
-                        <div class="gallery-full" id="masonryContainer"></div>
-                    </div>
-                </div>
-
-                <!-- MODAL -->
-                <div id="imageModal" class="modal">
+                <!-- MODAL DE COMPARTIR -->
+                <div id="shareModal" class="modal">
                     <div class="modal-content">
-                        <button class="close-modal" onclick="closeModal()">&times;</button>
-                        <img id="modalImage" class="modal-image" src="">
-                        <div class="slide-info" id="modalInfo" style="width: 100%;"></div>
+                        <button class="close-modal" onclick="closeShareModal()">&times;</button>
+                        <div class="modal-header">
+                            <h2>🔗 Compartir Álbum</h2>
+                            <p>Genera un enlace público para compartir tu álbum</p>
+                        </div>
+
+                        <div class="share-url">
+                            <input type="text" id="shareLink" readonly placeholder="Tu enlace público">
+                            <button class="copy-btn" onclick="copyShareLink()">📋 Copiar Enlace</button>
+                        </div>
+
+                        <div style="background: rgba(244, 143, 177, 0.1); padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center;">
+                            <p style="font-size: 0.9em; color: #5a3a5a; margin-bottom: 10px;">
+                                ✨ Este enlace permite que otros vean tu álbum sin necesidad de contraseña
+                            </p>
+                            <button class="format-btn" onclick="openPublicAlbum()">🌐 Ver como Público</button>
+                        </div>
                     </div>
                 </div>
 
@@ -1692,37 +1530,8 @@
                 title: "Nuestro Primer Beso",
                 date: "2024-02-14",
                 message: "El momento más especial de nuestras vidas...",
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23FFB6D9' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='%23c2185b' text-anchor='middle' dominant-baseline='central' font-family='serif' font-weight='bold'%3E💕 Primer Beso 💕%3C/text%3E%3C/svg%3E"
-            },
-            {
-                title: "Atardecer Romántico",
-                date: "2024-02-15",
-                message: "Juntos vimos el más hermoso atardecer...",
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23FFD9E5' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='%23c2185b' text-anchor='middle' dominant-baseline='central' font-family='serif' font-weight='bold'%3E🌅 Atardecer 🌅%3C/text%3E%3C/svg%3E"
-            },
-            {
-                title: "Cena Especial",
-                date: "2024-02-16",
-                message: "Una noche mágica bajo las estrellas...",
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23FFE4F1' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='%23c2185b' text-anchor='middle' dominant-baseline='central' font-family='serif' font-weight='bold'%3E🍽️ Cena 🍽️%3C/text%3E%3C/svg%3E"
-            },
-            {
-                title: "Viaje a la Playa",
-                date: "2024-02-17",
-                message: "Las olas del mar no son nada comparado...",
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23E1F5FF' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='%236200EA' text-anchor='middle' dominant-baseline='central' font-family='serif' font-weight='bold'%3E🏖️ Playa 🏖️%3C/text%3E%3C/svg%3E"
-            },
-            {
-                title: "Día en la Montaña",
-                date: "2024-02-18",
-                message: "En la cima del mundo, pero tú eres mi altura...",
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23F3E5F5' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='%236200EA' text-anchor='middle' dominant-baseline='central' font-family='serif' font-weight='bold'%3E⛰️ Montaña ⛰️%3C/text%3E%3C/svg%3E"
-            },
-            {
-                title: "Noche Especial",
-                date: "2024-02-19",
-                message: "Cada noche contigo es una noche de ensueño...",
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23F8BBD0' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='%23c2185b' text-anchor='middle' dominant-baseline='central' font-family='serif' font-weight='bold'%3E✨ Noche ✨%3C/text%3E%3C/svg%3E"
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23FFB6D9' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='%23c2185b' text-anchor='middle' dominant-baseline='central' font-family='serif' font-weight='bold'%3E💕 Primer Beso 💕%3C/text%3E%3C/svg%3E",
+                type: 'photo'
             }
         ];
 
@@ -1788,13 +1597,11 @@
                 rosesContainer.appendChild(rose);
             }
 
-            // Actualizar detalles
             document.getElementById('roseCount').textContent = `${totalRoses} Rosas`;
             
             const monthsText = totalRoses - INITIAL_ROSES === 0 ? 'Inicio del viaje' : `${totalRoses - INITIAL_ROSES} meses juntos`;
             document.getElementById('roseTime').textContent = `${monthsText} 💕`;
 
-            // Calcular próxima rosa
             const nextRose = calculateNextRoseDate();
             if (nextRose.daysUntil === 0) {
                 document.getElementById('nextRoseDate').textContent = '✨ ¡Nueva rosa disponible hoy!';
@@ -1803,7 +1610,6 @@
                 document.getElementById('nextRoseDate').textContent = `Faltan ${nextRose.daysUntil} días`;
             }
 
-            // Barra de progreso (progreso del mes actual)
             const now = new Date();
             const dayOfMonth = now.getDate();
             const progressPercent = (dayOfMonth / 31) * 100;
@@ -1877,31 +1683,18 @@
             switch(view) {
                 case 'upload':
                     displayUploadedItems();
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById('photoDate').value = today;
+                    document.getElementById('videoDate').value = today;
                     document.getElementById('uploadView').classList.remove('hidden');
                     break;
                 case 'carousel':
                     loadCarousel();
                     document.getElementById('carouselView').classList.remove('hidden');
                     break;
-                case 'fan':
-                    loadFan();
-                    document.getElementById('fanView').classList.remove('hidden');
-                    break;
                 case 'grid':
                     loadGrid();
                     document.getElementById('gridView').classList.remove('hidden');
-                    break;
-                case 'wall':
-                    loadWall();
-                    document.getElementById('wallView').classList.remove('hidden');
-                    break;
-                case 'spiral':
-                    loadSpiral();
-                    document.getElementById('spiralView').classList.remove('hidden');
-                    break;
-                case 'masonry':
-                    loadMasonry();
-                    document.getElementById('masonryView').classList.remove('hidden');
                     break;
             }
         }
@@ -1913,12 +1706,6 @@
         }
 
         // CARGA DE FOTOS Y VIDEOS
-        document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('photoDate').value = today;
-            document.getElementById('videoDate').value = today;
-        });
-
         function switchUploadTab(tab) {
             document.querySelectorAll('.tab-content-upload').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-link').forEach(el => el.classList.remove('active'));
@@ -1932,6 +1719,12 @@
             
             const file = document.getElementById('photoInput').files[0];
             if (!file) return;
+
+            // Validar tamaño
+            if (file.size > 50 * 1024 * 1024) {
+                showMessage('photoMessage', '❌ La foto es demasiado grande (máximo 50MB)', 'error');
+                return;
+            }
 
             const reader = new FileReader();
             reader.onload = (e) => {
@@ -1947,15 +1740,7 @@
                 savePhotos();
                 displayUploadedItems();
 
-                // Mostrar mensaje de éxito
-                const messageDiv = document.getElementById('photoMessage');
-                messageDiv.className = 'message success';
-                messageDiv.textContent = '✅ ¡Foto guardada exitosamente!';
-                messageDiv.style.display = 'block';
-                setTimeout(() => {
-                    messageDiv.style.display = 'none';
-                }, 3000);
-
+                showMessage('photoMessage', '✅ ¡Foto guardada exitosamente!', 'success');
                 document.getElementById('photoForm').reset();
                 const today = new Date().toISOString().split('T')[0];
                 document.getElementById('photoDate').value = today;
@@ -1969,17 +1754,12 @@
             
             const file = document.getElementById('videoInput').files[0];
             if (!file) {
-                const messageDiv = document.getElementById('videoMessage');
-                messageDiv.className = 'message error';
-                messageDiv.textContent = '❌ Por favor selecciona un video';
+                showMessage('videoMessage', '❌ Por favor selecciona un video', 'error');
                 return;
             }
 
-            // Validar tamaño
             if (file.size > 100 * 1024 * 1024) {
-                const messageDiv = document.getElementById('videoMessage');
-                messageDiv.className = 'message error';
-                messageDiv.textContent = '❌ El video es demasiado grande (máximo 100MB)';
+                showMessage('videoMessage', '❌ El video es demasiado grande (máximo 100MB)', 'error');
                 return;
             }
 
@@ -1997,21 +1777,23 @@
                 savePhotos();
                 displayUploadedItems();
 
-                // Mostrar mensaje de éxito
-                const messageDiv = document.getElementById('videoMessage');
-                messageDiv.className = 'message success';
-                messageDiv.textContent = '✅ ¡Video guardado exitosamente!';
-                messageDiv.style.display = 'block';
-                setTimeout(() => {
-                    messageDiv.style.display = 'none';
-                }, 3000);
-
+                showMessage('videoMessage', '✅ ¡Video guardado exitosamente!', 'success');
                 document.getElementById('videoForm').reset();
                 const today = new Date().toISOString().split('T')[0];
                 document.getElementById('videoDate').value = today;
             };
 
             reader.readAsDataURL(file);
+        }
+
+        function showMessage(elementId, text, type) {
+            const messageDiv = document.getElementById(elementId);
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = text;
+            messageDiv.style.display = 'block';
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 4000);
         }
 
         function displayUploadedItems() {
@@ -2025,22 +1807,21 @@
 
             photos.forEach((photo, index) => {
                 const item = document.createElement('div');
-                item.className = 'uploaded-item';
+                item.className = 'preview-item';
                 
                 let mediaHTML = '';
                 if (photo.type === 'video') {
-                    mediaHTML = `<video src="${photo.image}" style="width: 100%; height: 200px; object-fit: cover;"></video>`;
+                    mediaHTML = `<video src="${photo.image}" style="width: 100%; height: 150px; object-fit: cover;"></video>`;
                 } else {
                     mediaHTML = `<img src="${photo.image}" alt="${photo.title}">`;
                 }
 
                 item.innerHTML = `
                     ${mediaHTML}
-                    <div class="uploaded-info">
-                        <div class="uploaded-title">${photo.type === 'video' ? '🎥' : '📸'} ${photo.title}</div>
-                        <div class="uploaded-date">${new Date(photo.date).toLocaleDateString('es-ES', {year: 'numeric', month: 'short', day: 'numeric'})}</div>
-                        <button class="delete-item-btn" onclick="deleteItem(${index})">🗑️ Eliminar</button>
+                    <div class="preview-info">
+                        ${photo.type === 'video' ? '🎥' : '📸'} ${photo.title.substring(0, 15)}...
                     </div>
+                    <button class="preview-delete" onclick="deleteItem(${index})" title="Eliminar">×</button>
                 `;
                 container.appendChild(item);
             });
@@ -2072,7 +1853,11 @@
             photos.forEach((photo, index) => {
                 const slide = document.createElement('div');
                 slide.className = 'carousel-slide' + (index === 0 ? ' active' : '');
-                slide.innerHTML = `<img src="${photo.image}" alt="${photo.title}">`;
+                if (photo.type === 'video') {
+                    slide.innerHTML = `<video src="${photo.image}" controls style="max-width: 100%; max-height: 100%; border-radius: 15px;"></video>`;
+                } else {
+                    slide.innerHTML = `<img src="${photo.image}" alt="${photo.title}">`;
+                }
                 carousel.appendChild(slide);
             });
 
@@ -2111,25 +1896,6 @@
             }
         }
 
-        // ABANICO
-        function loadFan() {
-            const container = document.getElementById('fanContainer');
-            container.innerHTML = '';
-
-            if (photos.length === 0) {
-                container.innerHTML = '<div class="empty-state"><h3>Sin fotos</h3></div>';
-                return;
-            }
-
-            photos.forEach((photo, index) => {
-                const item = document.createElement('div');
-                item.className = 'fan-item';
-                item.style.transform = `rotateY(${index * (360 / photos.length)}deg) translateZ(250px)`;
-                item.innerHTML = `<img src="${photo.image}" alt="${photo.title}" onclick="showPhotoModal(${index})">`;
-                container.appendChild(item);
-            });
-        }
-
         // REJILLA
         function loadGrid() {
             const container = document.getElementById('gridContainer');
@@ -2143,97 +1909,68 @@
             photos.forEach((photo, index) => {
                 const item = document.createElement('div');
                 item.className = 'grid-item';
-                item.onclick = () => showPhotoModal(index);
-                item.innerHTML = `
-                    <img src="${photo.image}" alt="${photo.title}" class="grid-image">
-                    <div class="grid-info">
-                        <div class="grid-title">${photo.title}</div>
-                        <div class="grid-date">${new Date(photo.date).toLocaleDateString('es-ES', {month: 'short', day: 'numeric'})}</div>
-                    </div>
-                `;
+                if (photo.type === 'video') {
+                    item.innerHTML = `
+                        <video src="${photo.image}" style="width: 100%; height: 250px; object-fit: cover;"></video>
+                        <div class="grid-info">
+                            <div class="grid-title">🎥 ${photo.title}</div>
+                            <div class="grid-date">${new Date(photo.date).toLocaleDateString('es-ES', {month: 'short', day: 'numeric'})}</div>
+                        </div>
+                    `;
+                } else {
+                    item.innerHTML = `
+                        <img src="${photo.image}" alt="${photo.title}" class="grid-image">
+                        <div class="grid-info">
+                            <div class="grid-title">📸 ${photo.title}</div>
+                            <div class="grid-date">${new Date(photo.date).toLocaleDateString('es-ES', {month: 'short', day: 'numeric'})}</div>
+                        </div>
+                    `;
+                }
                 container.appendChild(item);
             });
         }
 
-        // MURO
-        function loadWall() {
-            const container = document.getElementById('wallContainer');
-            container.innerHTML = '';
-
-            if (photos.length === 0) {
-                container.innerHTML = '<div class="empty-state"><h3>Sin fotos</h3></div>';
-                return;
-            }
-
-            photos.forEach((photo, index) => {
-                const item = document.createElement('div');
-                item.className = 'wall-item';
-                item.onclick = () => showPhotoModal(index);
-                item.innerHTML = `<img src="${photo.image}" alt="${photo.title}" class="wall-image">`;
-                container.appendChild(item);
-            });
+        // COMPARTIR ÁLBUM PÚBLICO
+        function showShareModal() {
+            const shareLink = generatePublicLink();
+            document.getElementById('shareLink').value = shareLink;
+            document.getElementById('shareModal').classList.add('show');
         }
 
-        // CÍRCULOS
-        function loadSpiral() {
-            const container = document.getElementById('spiralContainer');
-            container.innerHTML = '';
-
-            if (photos.length === 0) {
-                container.innerHTML = '<div class="empty-state"><h3>Sin fotos</h3></div>';
-                return;
-            }
-
-            photos.forEach((photo, index) => {
-                const item = document.createElement('div');
-                item.className = 'spiral-item';
-                item.onclick = () => showPhotoModal(index);
-                item.innerHTML = `<img src="${photo.image}" alt="${photo.title}" class="spiral-image">`;
-                container.appendChild(item);
-            });
+        function closeShareModal() {
+            document.getElementById('shareModal').classList.remove('show');
         }
 
-        // CASCADA
-        function loadMasonry() {
-            const container = document.getElementById('masonryContainer');
-            container.innerHTML = '';
-
-            if (photos.length === 0) {
-                container.innerHTML = '<div class="empty-state"><h3>Sin fotos</h3></div>';
-                return;
-            }
-
-            photos.forEach((photo, index) => {
-                const item = document.createElement('div');
-                item.className = 'gallery-item';
-                item.onclick = () => showPhotoModal(index);
-                item.innerHTML = `<img src="${photo.image}" alt="${photo.title}" class="gallery-image">`;
-                container.appendChild(item);
-            });
+        function generatePublicLink() {
+            const baseUrl = window.location.origin + window.location.pathname;
+            const publicId = btoa(currentUser + '_' + Date.now());
+            localStorage.setItem('public_' + publicId, JSON.stringify({
+                photos: photos,
+                owner: currentUser,
+                date: new Date().toISOString()
+            }));
+            return baseUrl + '?public=' + publicId;
         }
 
-        // MODAL
-        function showPhotoModal(index) {
-            const photo = photos[index];
-            document.getElementById('modalImage').src = photo.image;
-            document.getElementById('modalInfo').innerHTML = `
-                <div class="slide-title">${photo.title}</div>
-                <div class="slide-date">${new Date(photo.date).toLocaleDateString('es-ES', {year: 'numeric', month: 'long', day: 'numeric'})}</div>
-                <div class="slide-message">"${photo.message}"</div>
-            `;
-            document.getElementById('imageModal').classList.add('show');
+        function copyShareLink() {
+            const shareLink = document.getElementById('shareLink');
+            shareLink.select();
+            document.execCommand('copy');
+            
+            const copyBtn = document.querySelector('.copy-btn');
+            copyBtn.textContent = '✅ ¡Enlace Copiado!';
+            copyBtn.classList.add('copied');
+            
+            setTimeout(() => {
+                copyBtn.textContent = '📋 Copiar Enlace';
+                copyBtn.classList.remove('copied');
+            }, 2000);
         }
 
-        function closeModal() {
-            document.getElementById('imageModal').classList.remove('show');
+        function openPublicAlbum() {
+            const shareLink = document.getElementById('shareLink').value;
+            window.open(shareLink, '_blank');
         }
-
-        document.addEventListener('click', function(event) {
-            const modal = document.getElementById('imageModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
 
         loadPhotos();
     </script>
