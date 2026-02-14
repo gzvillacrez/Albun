@@ -1653,6 +1653,50 @@
             display: block;
         }
 
+        /* LLUVIA DE ROSAS AL LOGIN */
+        @keyframes roseRainFall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes roseSwing {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(30px);
+            }
+        }
+
+        .rose-rain {
+            position: fixed;
+            top: -10vh;
+            font-size: 2em;
+            z-index: 9999;
+            pointer-events: none;
+            animation: roseRainFall linear forwards, roseSwing ease-in-out infinite;
+            text-shadow: 0 2px 4px rgba(255, 20, 147, 0.3);
+        }
+
+        .rose-rain-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
         .footer {
             text-align: center;
             margin-top: 60px;
@@ -2427,6 +2471,9 @@
             sessionStorage.setItem('currentUser', currentUser);
             localStorage.setItem('sharedPhotos', JSON.stringify(photos));
             
+            // CREAR LLUVIA DE ROSAS
+            createRoseRain();
+            
             document.getElementById('loginContainer').classList.add('hidden');
             document.getElementById('mainApp').classList.remove('hidden');
             document.getElementById('mainMenu').classList.remove('hidden');
@@ -2861,6 +2908,44 @@
             `);
         }
 
+        // ===== LLUVIA DE ROSAS AL LOGIN =====
+        function createRoseRain() {
+            const container = document.createElement('div');
+            container.className = 'rose-rain-container';
+            document.body.appendChild(container);
+
+            // Crear 50 rosas
+            const roseCount = 50;
+            for (let i = 0; i < roseCount; i++) {
+                const rose = document.createElement('div');
+                rose.className = 'rose-rain';
+                rose.textContent = '🌹';
+                
+                // Posición horizontal aleatoria
+                const randomLeft = Math.random() * 100;
+                rose.style.left = randomLeft + '%';
+                
+                // Duración aleatoria entre 3 a 5 segundos
+                const duration = 3 + Math.random() * 2;
+                rose.style.animationDuration = duration + 's';
+                
+                // Delay aleatorio
+                const delay = Math.random() * 0.5;
+                rose.style.animationDelay = delay + 's';
+                
+                // Velocidad de swing aleatoria
+                const swingDuration = 1 + Math.random() * 1;
+                rose.style.setProperty('--swing-duration', swingDuration + 's');
+                
+                container.appendChild(rose);
+            }
+
+            // Remover container después de la animación
+            setTimeout(() => {
+                container.remove();
+            }, 6000);
+        }
+
         // CARGA DE FOTOS Y VIDEOS
         function switchUploadTab(tab) {
             document.querySelectorAll('.tab-content-upload').forEach(el => el.classList.remove('active'));
@@ -3155,14 +3240,56 @@
         }
 
         function generatePublicLink() {
+            // Generar enlace público válido
             const baseUrl = window.location.origin + window.location.pathname;
-            const publicId = btoa(currentUser + '_' + Date.now());
-            localStorage.setItem('public_' + publicId, JSON.stringify({
-                photos: photos,
-                owner: currentUser,
-                date: new Date().toISOString()
-            }));
-            return baseUrl + '?public=' + publicId;
+            
+            // Usar fotos actuales o por defecto
+            const photosToShare = photos.length > 0 ? photos : defaultPhotos;
+            
+            // Crear ID único sin caracteres especiales
+            const timestamp = Date.now().toString(36);
+            const random = Math.random().toString(36).substring(2, 15);
+            const publicId = (timestamp + random).substring(0, 20);
+            
+            // Guardar datos públicos CON MÚSICA
+            const publicAlbumData = {
+                photos: photosToShare,
+                owner: currentUser || 'Anónimo',
+                date: new Date().toISOString(),
+                rosas: calculateRoses(),
+                nextRose: calculateNextRoseDate()
+            };
+            
+            // Intentar agregar música si existe
+            try {
+                const musicData = localStorage.getItem('backgroundMusic');
+                if (musicData) {
+                    publicAlbumData.music = musicData;
+                }
+            } catch (e) {
+                console.log('No hay música YouTube');
+            }
+            
+            try {
+                const uploadedMusic = localStorage.getItem('uploadedMusic');
+                if (uploadedMusic) {
+                    publicAlbumData.uploadedMusic = uploadedMusic;
+                }
+            } catch (e) {
+                console.log('No hay música descargada');
+            }
+            
+            // Guardar en localStorage
+            localStorage.setItem('public_' + publicId, JSON.stringify(publicAlbumData));
+            
+            // Generar URL pública COMPLETA y válida
+            const publicUrl = baseUrl + '?public=' + publicId;
+            
+            console.log('✅ Álbum público creado:', publicUrl);
+            console.log('✅ ID público:', publicId);
+            console.log('✅ Fotos:', photosToShare.length);
+            
+            return publicUrl;
         }
 
         function copyShareLink() {
@@ -3189,34 +3316,48 @@
         // INTENTAR RESTAURAR SESIÓN AL RECARGAR
         const sessionRestored = restoreSession();
 
-        // ===== VERIFICAR ACCESO PÚBLICO =====
+        // ===== VERIFICAR ACCESO PÚBLICO (ANTES DE LOGIN) =====
         const urlParams = new URLSearchParams(window.location.search);
         const publicId = urlParams.get('public');
 
         if (publicId) {
-            // Es acceso público
+            // Es acceso público - NO mostrar login
             const publicData = localStorage.getItem('public_' + publicId);
             if (publicData) {
                 try {
                     const albumData = JSON.parse(publicData);
                     photos = albumData.photos || [];
                     
+                    // OCULTAR LOGIN COMPLETAMENTE
                     document.getElementById('loginContainer').classList.add('hidden');
                     document.getElementById('mainApp').classList.add('hidden');
                     document.getElementById('publicAlbumContainer').classList.remove('hidden');
                     
+                    // Iniciar reloj y rosas público
                     updatePublicHeartClock();
                     displayPublicRoses();
                     setInterval(updatePublicHeartClock, 1000);
                     setInterval(displayPublicRoses, 60000);
                     
+                    // Cargar música si existe
+                    if (albumData.music) {
+                        backgroundMusic = JSON.parse(albumData.music);
+                    }
+                    if (albumData.uploadedMusic) {
+                        uploadedMusicData = JSON.parse(albumData.uploadedMusic);
+                    }
+                    
                     console.log('✅ Álbum público cargado:', photos.length, 'elementos');
                 } catch (e) {
-                    console.error('Error:', e);
-                    alert('❌ Álbum no encontrado');
+                    console.error('Error loading public album:', e);
+                    alert('❌ Álbum no encontrado o expirado');
+                    // Volver a URL base sin parámetro
+                    window.location.href = window.location.pathname;
                 }
             } else {
                 alert('❌ Este álbum ya no está disponible');
+                // Volver a URL base sin parámetro
+                window.location.href = window.location.pathname;
             }
         }
 
@@ -3385,7 +3526,61 @@
                 container.appendChild(item);
             });
         }
+
+        // ===== INICIALIZACIÓN PRINCIPAL =====
         loadPhotos();
+
+        // VERIFICAR ACCESO PÚBLICO PRIMERO
+        const urlParams = new URLSearchParams(window.location.search);
+        const publicId = urlParams.get('public');
+
+        if (publicId) {
+            // ACCESO PÚBLICO - Sin login requerido
+            console.log('🔓 Detectado parámetro público:', publicId);
+            
+            const publicData = localStorage.getItem('public_' + publicId);
+            
+            if (publicData) {
+                try {
+                    const albumData = JSON.parse(publicData);
+                    photos = albumData.photos || [];
+                    
+                    console.log('✅ Datos públicos encontrados');
+                    console.log('✅ Fotos:', photos.length);
+                    
+                    // Ocultar UI de login
+                    document.getElementById('loginContainer').style.display = 'none';
+                    document.getElementById('mainApp').style.display = 'none';
+                    document.getElementById('publicAlbumContainer').style.display = 'block';
+                    
+                    // Inicializar vistas públicas
+                    setTimeout(() => {
+                        updatePublicHeartClock();
+                        displayPublicRoses();
+                        setInterval(updatePublicHeartClock, 1000);
+                        setInterval(displayPublicRoses, 60000);
+                        
+                        console.log('✅ Álbum público listo para ver');
+                    }, 100);
+                    
+                } catch (error) {
+                    console.error('❌ Error:', error);
+                    alert('❌ No se pudo cargar el álbum público.');
+                }
+            } else {
+                console.error('❌ Álbum público no existe:', publicId);
+                alert('❌ Este enlace ya no es válido o ha expirado.');
+            }
+        } else {
+            // LOGIN NORMAL - Intentar restaurar sesión
+            console.log('🔐 Modo login normal');
+            const sessionRestored = restoreSession();
+            if (sessionRestored) {
+                console.log('✅ Sesión restaurada');
+            } else {
+                console.log('ℹ️ Sesión no encontrada, mostrar login');
+            }
+        }
     </script>
 </body>
 </html>
