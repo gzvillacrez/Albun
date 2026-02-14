@@ -1929,7 +1929,7 @@
         </div>
     </div>
 
-    <!-- APLICACIÓN PRINCIPAL -->
+    <!-- APLICACIÓN PRINCIPAL (PRIVADA) -->
     <div id="mainApp" class="hidden">
         <button class="logout-btn" onclick="logout()">🚪 Salir</button>
 
@@ -2048,7 +2048,7 @@
                                         <label for="videoInput">🎥 Selecciona tu Video:</label>
                                         <div class="file-input-wrapper">
                                             <label for="videoInput" class="file-input-label">
-                                                🎬 Haz clic para elegir un video (máx. 100MB)
+                                                🎬 Haz clic para elegir un video (máx. 10MB)
                                             </label>
                                             <input type="file" id="videoInput" accept="video/*" required>
                                         </div>
@@ -2136,7 +2136,7 @@
                                     <label>📁 Selecciona archivo de música:</label>
                                     <div class="file-input-wrapper">
                                         <label for="musicFileInput" class="file-input-label">
-                                            🎵 Haz clic para elegir archivo (máx 50MB)
+                                            🎵 Haz clic para elegir archivo (máx 10MB)
                                         </label>
                                         <input type="file" id="musicFileInput" accept="audio/*" onchange="handleMusicFileUpload()">
                                     </div>
@@ -2193,33 +2193,6 @@
                                         <p>Miles de canciones libres de derechos</p>
                                         <a href="https://freemusicarchive.org" target="_blank" class="platform-btn">
                                             🌐 Ir a FMA
-                                        </a>
-                                    </div>
-
-                                    <div class="platform-card">
-                                        <div class="platform-icon">🎬</div>
-                                        <h4>Pixabay Music</h4>
-                                        <p>Música gratis sin atribución requerida</p>
-                                        <a href="https://pixabay.com/music" target="_blank" class="platform-btn">
-                                            🌐 Ir a Pixabay
-                                        </a>
-                                    </div>
-
-                                    <div class="platform-card">
-                                        <div class="platform-icon">🎹</div>
-                                        <h4>YouTube Audio Library</h4>
-                                        <p>Canciones sin copyright de YouTube</p>
-                                        <button class="platform-btn" onclick="showYoutubeAudioInfo()">
-                                            ℹ️ Cómo Usar
-                                        </button>
-                                    </div>
-
-                                    <div class="platform-card">
-                                        <div class="platform-icon">🎼</div>
-                                        <h4>Chosic</h4>
-                                        <p>Colecciones de música libre</p>
-                                        <a href="https://www.chosic.com/free-music" target="_blank" class="platform-btn">
-                                            🌐 Ir a Chosic
                                         </a>
                                     </div>
                                 </div>
@@ -2292,6 +2265,87 @@
         </div>
     </div>
 
+    <!-- APLICACIÓN PÚBLICA (VISUALIZACIÓN) -->
+    <!-- ESTA ES LA SECCIÓN QUE FALTABA -->
+    <div id="publicAlbumContainer" class="hidden">
+        <div class="main-content">
+            <div class="container">
+                <div class="public-header">
+                    <h1>🌹 Nuestro Álbum de Amor 🌹</h1>
+                    <div class="public-info">
+                        Visualizando álbum compartido ❤️
+                    </div>
+                </div>
+
+                <!-- RELOJ PÚBLICO -->
+                 <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+                    <div class="heart-clock" style="transform: rotate(-45deg) scale(0.8);">
+                        <div class="clock-face">
+                            <div class="hand hour-hand" id="publicHourHand"></div>
+                            <div class="hand minute-hand" id="publicMinuteHand"></div>
+                            <div class="hand second-hand" id="publicSecondHand"></div>
+                            <div class="clock-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTADOR ROSAS PÚBLICO -->
+                <div style="text-align: center; margin-bottom: 40px; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(193, 24, 91, 0.1);">
+                    <h3 style="color: #c2185b; font-family: 'Playfair Display', serif; margin-bottom: 15px;">Tiempo Juntos</h3>
+                    <div id="publicRosesContainer" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; margin-bottom: 15px;"></div>
+                    <div id="publicRoseCount" style="font-size: 1.2em; font-weight: bold; color: #c2185b;"></div>
+                    <div id="publicRoseTime" style="color: #ad1457;"></div>
+                    <div style="margin-top: 10px;">
+                        <div style="width: 100%; height: 4px; background: rgba(244, 143, 177, 0.2); border-radius: 10px; overflow: hidden; max-width: 300px; margin: 10px auto;">
+                            <div id="publicRoseProgress" style="height: 100%; background: linear-gradient(90deg, #f48fb1 0%, #ec407a 100%); width: 0%;"></div>
+                        </div>
+                        <small id="publicNextRoseDate" style="color: #8e3b5c;"></small>
+                    </div>
+                </div>
+
+                <!-- MENÚ PÚBLICO -->
+                <div id="publicMenu" class="format-options">
+                    <div class="format-card" onclick="showPublicView('carousel')">
+                        <div class="format-icon">🎠</div>
+                        <h2>Ver Carrusel</h2>
+                        <p>Presentación deslizante</p>
+                    </div>
+                    <div class="format-card" onclick="showPublicView('grid')">
+                        <div class="format-icon">📊</div>
+                        <h2>Ver Rejilla</h2>
+                        <p>Galería completa</p>
+                    </div>
+                </div>
+
+                <!-- CARRUSEL PÚBLICO -->
+                <div id="publicCarouselView" class="hidden">
+                    <div class="viewer-container">
+                        <button class="back-btn" onclick="backToPublicMenu()">← Volver</button>
+                        <div class="carousel" id="publicCarousel"></div>
+                        <div class="carousel-controls">
+                            <button class="carousel-btn" onclick="previousPublicSlide()" id="publicPrevBtn">←</button>
+                            <span class="slide-counter"><span id="publicCurrentSlide">0</span> / <span id="publicTotalSlides">0</span></span>
+                            <button class="carousel-btn" onclick="nextPublicSlide()" id="publicNextBtn">→</button>
+                        </div>
+                        <div class="slide-info" id="publicSlideInfo"></div>
+                    </div>
+                </div>
+
+                <!-- REJILLA PÚBLICA -->
+                <div id="publicGridView" class="hidden">
+                    <div class="viewer-container">
+                        <button class="back-btn" onclick="backToPublicMenu()">← Volver</button>
+                        <div class="grid-container" id="publicGridContainer"></div>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <p>❤️ Álbum Compartido Público ❤️</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // DATOS DE USUARIOS
         const users = {
@@ -2323,7 +2377,11 @@
             
             if (savedUser && savedPhotos) {
                 currentUser = savedUser;
-                photos = JSON.parse(savedPhotos);
+                try {
+                    photos = JSON.parse(savedPhotos);
+                } catch(e) {
+                    photos = defaultPhotos;
+                }
                 
                 // Mostrar app, ocultar login
                 document.getElementById('loginContainer').classList.add('hidden');
@@ -2341,9 +2399,14 @@
         function saveSession() {
             if (currentUser) {
                 sessionStorage.setItem('currentUser', currentUser);
-                localStorage.setItem('sharedPhotos', JSON.stringify(photos));
-                savePhotosWithFolders();
-                console.log('✅ Sesión guardada');
+                try {
+                    localStorage.setItem('sharedPhotos', JSON.stringify(photos));
+                    savePhotosWithFolders();
+                    console.log('✅ Sesión guardada');
+                } catch (e) {
+                    console.error("Error guardando sesión (Quota Exceeded):", e);
+                    alert("⚠️ Memoria llena: No se pueden guardar más fotos/videos en este navegador.");
+                }
             }
         }
 
@@ -2401,6 +2464,7 @@
         function displayRoses() {
             const totalRoses = calculateRoses();
             const rosesContainer = document.getElementById('rosesContainer');
+            if(!rosesContainer) return;
             rosesContainer.innerHTML = '';
             
             for (let i = 0; i < totalRoses; i++) {
@@ -2469,7 +2533,6 @@
             
             // GUARDAR SESIÓN
             sessionStorage.setItem('currentUser', currentUser);
-            localStorage.setItem('sharedPhotos', JSON.stringify(photos));
             
             // CREAR LLUVIA DE ROSAS
             createRoseRain();
@@ -2538,9 +2601,14 @@
             });
 
             // Guardar estructura en localStorage
-            localStorage.setItem('sharedPhotos', JSON.stringify(photos));
-            localStorage.setItem('photoFolders', JSON.stringify(photosByFolder));
-            console.log('Fotos guardadas con carpetas:', Object.keys(photosByFolder));
+            // Nota: Aquí no usamos JSON.stringify dos veces, sino que asumimos que photos ya está sincronizado
+            // Se usa try-catch para evitar crash por límite de memoria
+            try {
+                localStorage.setItem('photoFolders', JSON.stringify(photosByFolder));
+                console.log('Fotos guardadas con carpetas:', Object.keys(photosByFolder));
+            } catch (e) {
+                console.warn("Memoria llena al guardar carpetas");
+            }
         }
 
         function showView(view) {
@@ -2716,36 +2784,45 @@
 
         function playBackgroundMusic() {
             const stored = localStorage.getItem('backgroundMusic');
-            if (!stored) return;
-
-            backgroundMusic = JSON.parse(stored);
-            const videoId = backgroundMusic.videoId;
-
-            // Detener audio anterior si existe
-            if (audioPlayer) {
-                audioPlayer.pause();
-            }
-
-            // Crear reproductor de audio con YouTube
-            const audioUrl = `https://www.youtube.com/embed/${videoId}`;
             
-            // Crear iframe oculto para reproducción
-            let iframe = document.getElementById('hidden-audio-player');
-            if (!iframe) {
-                iframe = document.createElement('iframe');
-                iframe.id = 'hidden-audio-player';
-                iframe.style.display = 'none';
-                iframe.allow = 'autoplay';
-                document.body.appendChild(iframe);
+            // Prioridad: YouTube si existe
+            if (stored) {
+                backgroundMusic = JSON.parse(stored);
+                const videoId = backgroundMusic.videoId;
+                
+                // Detener audio file si está sonando
+                const audioFile = document.getElementById('uploaded-audio-player');
+                if(audioFile) audioFile.pause();
+
+                // Crear iframe oculto para reproducción
+                let iframe = document.getElementById('hidden-audio-player');
+                if (!iframe) {
+                    iframe = document.createElement('iframe');
+                    iframe.id = 'hidden-audio-player';
+                    iframe.style.display = 'none';
+                    iframe.allow = 'autoplay';
+                    document.body.appendChild(iframe);
+                }
+                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=0&loop=1&playlist=${videoId}`;
+                return;
             }
 
-            iframe.src = `${audioUrl}?autoplay=1&controls=0&loop=1&playlist=${videoId}`;
+            // Si no hay YouTube, buscar audio subido
+            const uploaded = localStorage.getItem('uploadedMusic');
+            if (uploaded) {
+                playUploadedMusic();
+            }
         }
 
         function stopBackgroundMusic() {
             const iframe = document.getElementById('hidden-audio-player');
             if (iframe) {
                 iframe.src = '';
+            }
+            const audioFile = document.getElementById('uploaded-audio-player');
+            if (audioFile) {
+                audioFile.pause();
+                audioFile.currentTime = 0;
             }
         }
 
@@ -2776,16 +2853,9 @@
             const file = document.getElementById('musicFileInput').files[0];
             if (!file) return;
 
-            // Validar tamaño
-            if (file.size > 50 * 1024 * 1024) {
-                alert('❌ El archivo es muy grande (máximo 50MB)');
-                return;
-            }
-
-            // Validar formato
-            const validFormats = ['audio/mpeg', 'audio/wav', 'audio/ogg', 'audio/mp4', 'audio/webm'];
-            if (!validFormats.includes(file.type)) {
-                alert('❌ Formato no soportado. Usa MP3, WAV, OGG, M4A o WebM');
+            // Validar tamaño: Reducido a 10MB para prevenir crash de LocalStorage
+            if (file.size > 10 * 1024 * 1024) {
+                alert('❌ El archivo es muy grande para guardar en navegador (máximo 10MB)');
                 return;
             }
 
@@ -2827,20 +2897,20 @@
                 alert('❌ Por favor selecciona un archivo de música primero');
                 return;
             }
-
-            localStorage.setItem('uploadedMusic', JSON.stringify(uploadedMusicData));
-
-            // Mostrar mensaje de éxito
-            const status = document.getElementById('uploadMusicStatus');
-            const originalContent = status.innerHTML;
-            status.className = 'music-status active';
-            status.innerHTML = '✅ ¡Música guardada exitosamente!';
-
-            setTimeout(() => {
-                status.innerHTML = originalContent;
-            }, 3000);
-
-            console.log('✅ Música guardada:', uploadedMusicData.name);
+            try {
+                localStorage.setItem('uploadedMusic', JSON.stringify(uploadedMusicData));
+                 // Mostrar mensaje de éxito
+                const status = document.getElementById('uploadMusicStatus');
+                const originalContent = status.innerHTML;
+                status.className = 'music-status active';
+                status.innerHTML = '✅ ¡Música guardada exitosamente!';
+    
+                setTimeout(() => {
+                    status.innerHTML = originalContent;
+                }, 3000);
+            } catch (e) {
+                alert("❌ Error: El archivo es demasiado grande para la memoria del navegador.");
+            }
         }
 
         function clearUploadedMusic() {
@@ -2853,8 +2923,6 @@
                 const status = document.getElementById('uploadMusicStatus');
                 status.className = 'music-status inactive';
                 status.innerHTML = '🔇 Sin archivo cargado';
-
-                console.log('✅ Música eliminada');
             }
         }
 
@@ -2875,36 +2943,19 @@
                 audioElement.style.display = 'none';
                 audioElement.controls = false;
                 audioElement.loop = true;
-                audioElement.autoplay = true;
                 document.body.appendChild(audioElement);
             }
 
             audioElement.src = music.data;
-            audioElement.volume = music.volume / 100;
-            audioElement.play();
+            audioElement.volume = (music.volume || 70) / 100;
+            audioElement.play().catch(e => console.log("Interacción requerida para audio"));
         }
 
         function showYoutubeAudioInfo() {
             alert(`
 📚 YOUTUBE AUDIO LIBRARY
-
-📍 ¿Dónde encontrarla?
-1. Ve a YouTube Studio
-2. En el menú lateral: "Creación" → "Sonidos"
-3. Busca canción que quieras
-
-📥 ¿Cómo descargarla?
-1. Algunos videos permiten descargar
-2. O usa: https://www.y2mate.com/
-3. Descárgalo como MP3
-
-📤 Luego:
-1. Vuelve a esta pestaña
-2. Click en "Subir Archivo"
-3. Selecciona el MP3 descargado
-4. ¡Listo! Úsalo sin anuncios
-
 ¡Las canciones de YouTube Audio Library son 100% libres de derechos!
+Descárgalas como MP3 y úsalas aquí.
             `);
         }
 
@@ -2961,9 +3012,9 @@
             const file = document.getElementById('photoInput').files[0];
             if (!file) return;
 
-            // Validar tamaño
-            if (file.size > 50 * 1024 * 1024) {
-                showMessage('photoMessage', '❌ La foto es demasiado grande (máximo 50MB)', 'error');
+            // Validar tamaño reducido para evitar crash
+            if (file.size > 5 * 1024 * 1024) {
+                showMessage('photoMessage', '❌ La foto es demasiado grande (máximo 5MB para demo)', 'error');
                 return;
             }
 
@@ -2977,17 +3028,23 @@
                     type: 'photo'
                 };
 
-                photos.push(newPhoto);
-                savePhotos();
-                displayUploadedItems();
-
-                // MOSTRAR MENSAJE CON PREVIEW
-                const currentCount = photos.length;
-                showPhotoSuccessMessage(newPhoto, currentCount);
-                
-                document.getElementById('photoForm').reset();
-                const today = new Date().toISOString().split('T')[0];
-                document.getElementById('photoDate').value = today;
+                try {
+                    photos.push(newPhoto);
+                    localStorage.setItem('sharedPhotos', JSON.stringify(photos));
+                    savePhotosWithFolders();
+                    displayUploadedItems();
+                    
+                    // MOSTRAR MENSAJE CON PREVIEW
+                    const currentCount = photos.length;
+                    showPhotoSuccessMessage(newPhoto, currentCount);
+                    
+                    document.getElementById('photoForm').reset();
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById('photoDate').value = today;
+                } catch (err) {
+                     alert("⚠️ Error de Memoria: El almacenamiento local del navegador está lleno. Intenta borrar algunas fotos.");
+                     photos.pop(); // Revertir cambio en memoria
+                }
             };
 
             reader.readAsDataURL(file);
@@ -2997,6 +3054,13 @@
             const container = document.body;
             const notification = document.createElement('div');
             notification.className = 'photo-success-notification';
+            
+            // Calculo seguro de tamaño
+            let size = "0";
+            try {
+                size = (localStorage.getItem('sharedPhotos').length / 1024 / 1024).toFixed(2);
+            } catch(e){}
+
             notification.innerHTML = `
                 <div class="notification-card">
                     <div class="notification-header">
@@ -3024,12 +3088,8 @@
                         </div>
                         <div class="stat-item">
                             <span class="stat-label">Almacenamiento:</span>
-                            <span class="stat-value">${(localStorage.getItem('sharedPhotos').length / 1024 / 1024).toFixed(2)} MB</span>
+                            <span class="stat-value">${size} MB</span>
                         </div>
-                    </div>
-                    
-                    <div class="notification-footer">
-                        <p>Tu foto ha sido guardada correctamente en el álbum 🎉</p>
                     </div>
                 </div>
             `;
@@ -3054,8 +3114,9 @@
                 return;
             }
 
-            if (file.size > 100 * 1024 * 1024) {
-                showMessage('videoMessage', '❌ El video es demasiado grande (máximo 100MB)', 'error');
+            // Limite real de localStorage ~5-10MB
+            if (file.size > 10 * 1024 * 1024) {
+                showMessage('videoMessage', '❌ El video es demasiado grande (máximo 10MB para demo)', 'error');
                 return;
             }
 
@@ -3069,14 +3130,15 @@
                     type: 'video'
                 };
 
-                photos.push(newVideo);
-                savePhotos();
-                displayUploadedItems();
-
-                showMessage('videoMessage', '✅ ¡Video guardado exitosamente!', 'success');
-                document.getElementById('videoForm').reset();
-                const today = new Date().toISOString().split('T')[0];
-                document.getElementById('videoDate').value = today;
+                try {
+                    photos.push(newVideo);
+                    localStorage.setItem('sharedPhotos', JSON.stringify(photos));
+                    displayUploadedItems();
+                    showMessage('videoMessage', '✅ ¡Video guardado exitosamente!', 'success');
+                    document.getElementById('videoForm').reset();
+                } catch(err) {
+                    alert("⚠️ Error de Memoria: El almacenamiento local está lleno.");
+                }
             };
 
             reader.readAsDataURL(file);
@@ -3126,15 +3188,9 @@
         function deleteItem(index) {
             if (confirm('¿Estás seguro de que quieres eliminar este elemento?')) {
                 photos.splice(index, 1);
-                savePhotos();
+                localStorage.setItem('sharedPhotos', JSON.stringify(photos));
                 displayUploadedItems();
             }
-        }
-
-        function savePhotos() {
-            localStorage.setItem('sharedPhotos', JSON.stringify(photos));
-            savePhotosWithFolders(); // También crear estructura de carpetas
-            console.log('Fotos guardadas. Total:', photos.length);
         }
 
         // CARRUSEL
@@ -3246,18 +3302,14 @@
             // Usar fotos actuales o por defecto
             const photosToShare = photos.length > 0 ? photos : defaultPhotos;
             
-            // Crear ID único sin caracteres especiales
-            const timestamp = Date.now().toString(36);
-            const random = Math.random().toString(36).substring(2, 15);
-            const publicId = (timestamp + random).substring(0, 20);
+            // Crear ID único
+            const publicId = "shared_" + Date.now().toString(36);
             
             // Guardar datos públicos CON MÚSICA
             const publicAlbumData = {
                 photos: photosToShare,
                 owner: currentUser || 'Anónimo',
-                date: new Date().toISOString(),
-                rosas: calculateRoses(),
-                nextRose: calculateNextRoseDate()
+                date: new Date().toISOString()
             };
             
             // Intentar agregar música si existe
@@ -3266,30 +3318,23 @@
                 if (musicData) {
                     publicAlbumData.music = musicData;
                 }
-            } catch (e) {
-                console.log('No hay música YouTube');
-            }
-            
-            try {
                 const uploadedMusic = localStorage.getItem('uploadedMusic');
                 if (uploadedMusic) {
                     publicAlbumData.uploadedMusic = uploadedMusic;
                 }
             } catch (e) {
-                console.log('No hay música descargada');
+                console.log('Error guardando música para público');
             }
             
             // Guardar en localStorage
-            localStorage.setItem('public_' + publicId, JSON.stringify(publicAlbumData));
-            
-            // Generar URL pública COMPLETA y válida
-            const publicUrl = baseUrl + '?public=' + publicId;
-            
-            console.log('✅ Álbum público creado:', publicUrl);
-            console.log('✅ ID público:', publicId);
-            console.log('✅ Fotos:', photosToShare.length);
-            
-            return publicUrl;
+            try {
+                localStorage.setItem('public_' + publicId, JSON.stringify(publicAlbumData));
+                const publicUrl = baseUrl + '?public=' + publicId;
+                return publicUrl;
+            } catch(e) {
+                alert("⚠️ Error: No se pudo generar enlace público (memoria llena)");
+                return "Error de memoria";
+            }
         }
 
         function copyShareLink() {
@@ -3309,59 +3354,12 @@
 
         function openPublicAlbum() {
             const shareLink = document.getElementById('shareLink').value;
-            window.open(shareLink, '_blank');
-        }
-
-
-        // INTENTAR RESTAURAR SESIÓN AL RECARGAR
-        const sessionRestored = restoreSession();
-
-        // ===== VERIFICAR ACCESO PÚBLICO (ANTES DE LOGIN) =====
-        const urlParams = new URLSearchParams(window.location.search);
-        const publicId = urlParams.get('public');
-
-        if (publicId) {
-            // Es acceso público - NO mostrar login
-            const publicData = localStorage.getItem('public_' + publicId);
-            if (publicData) {
-                try {
-                    const albumData = JSON.parse(publicData);
-                    photos = albumData.photos || [];
-                    
-                    // OCULTAR LOGIN COMPLETAMENTE
-                    document.getElementById('loginContainer').classList.add('hidden');
-                    document.getElementById('mainApp').classList.add('hidden');
-                    document.getElementById('publicAlbumContainer').classList.remove('hidden');
-                    
-                    // Iniciar reloj y rosas público
-                    updatePublicHeartClock();
-                    displayPublicRoses();
-                    setInterval(updatePublicHeartClock, 1000);
-                    setInterval(displayPublicRoses, 60000);
-                    
-                    // Cargar música si existe
-                    if (albumData.music) {
-                        backgroundMusic = JSON.parse(albumData.music);
-                    }
-                    if (albumData.uploadedMusic) {
-                        uploadedMusicData = JSON.parse(albumData.uploadedMusic);
-                    }
-                    
-                    console.log('✅ Álbum público cargado:', photos.length, 'elementos');
-                } catch (e) {
-                    console.error('Error loading public album:', e);
-                    alert('❌ Álbum no encontrado o expirado');
-                    // Volver a URL base sin parámetro
-                    window.location.href = window.location.pathname;
-                }
-            } else {
-                alert('❌ Este álbum ya no está disponible');
-                // Volver a URL base sin parámetro
-                window.location.href = window.location.pathname;
+            if(shareLink && !shareLink.includes("Error")) {
+                 window.open(shareLink, '_blank');
             }
         }
 
-        // ===== FUNCIONES DE VISTA PÚBLICA =====
+        // ===== LÓGICA VISTA PÚBLICA =====
         let publicCurrentSlide = 0;
 
         function updatePublicHeartClock() {
@@ -3374,11 +3372,14 @@
             const minuteDegrees = (minutes / 60) * 360 + (seconds / 60) * 6;
             const hourDegrees = (hours / 12) * 360 + (minutes / 60) * 30;
 
-            if (document.getElementById('publicSecondHand')) {
-                document.getElementById('publicSecondHand').style.transform = `rotate(${secondDegrees}deg)`;
-                document.getElementById('publicMinuteHand').style.transform = `rotate(${minuteDegrees}deg)`;
-                document.getElementById('publicHourHand').style.transform = `rotate(${hourDegrees}deg)`;
-            }
+            const secHand = document.getElementById('publicSecondHand');
+            if (secHand) secHand.style.transform = `rotate(${secondDegrees}deg)`;
+            
+            const minHand = document.getElementById('publicMinuteHand');
+            if (minHand) minHand.style.transform = `rotate(${minuteDegrees}deg)`;
+            
+            const hrHand = document.getElementById('publicHourHand');
+            if (hrHand) hrHand.style.transform = `rotate(${hourDegrees}deg)`;
         }
 
         function displayPublicRoses() {
@@ -3388,61 +3389,59 @@
             
             rosesContainer.innerHTML = '';
             
-            for (let i = 0; i < totalRoses; i++) {
+            // Mostrar máx 20 rosas visuales para no saturar
+            const visualRoses = Math.min(totalRoses, 20);
+            for (let i = 0; i < visualRoses; i++) {
                 const rose = document.createElement('div');
                 rose.className = 'rose';
                 rose.textContent = '🌹';
-                rose.style.animationDelay = `${i * 0.05}s`;
                 rosesContainer.appendChild(rose);
             }
+            if(totalRoses > 20) {
+                 const more = document.createElement('div');
+                 more.textContent = `+${totalRoses-20} más`;
+                 more.style.alignSelf = "center";
+                 more.style.color = "#c2185b";
+                 rosesContainer.appendChild(more);
+            }
 
-            document.getElementById('publicRoseCount').textContent = `${totalRoses} Rosas`;
-            const monthsText = totalRoses - INITIAL_ROSES === 0 ? 'Inicio del viaje' : `${totalRoses - INITIAL_ROSES} meses juntos`;
-            document.getElementById('publicRoseTime').textContent = `${monthsText} 💕`;
+            document.getElementById('publicRoseCount').textContent = `${totalRoses} Rosas Totales`;
+            const monthsText = totalRoses - INITIAL_ROSES === 0 ? 'Inicio' : `${totalRoses - INITIAL_ROSES} meses`;
+            document.getElementById('publicRoseTime').textContent = `${monthsText} de Amor`;
 
             const nextRose = calculateNextRoseDate();
             document.getElementById('publicNextRoseDate').textContent = nextRose.daysUntil === 0 ? 
-                '✨ ¡Nueva rosa hoy!' : `Faltan ${nextRose.daysUntil} días`;
+                '✨ ¡Nueva rosa hoy!' : `Próxima en ${nextRose.daysUntil} días`;
 
             const now = new Date();
             const dayOfMonth = now.getDate();
             document.getElementById('publicRoseProgress').style.width = ((dayOfMonth / 31) * 100) + '%';
         }
 
-        function togglePublicRosesDetails() {
-            const details = document.getElementById('publicRosesDetails');
-            if (details) details.classList.toggle('show');
-        }
-
         function showPublicView(view) {
             document.getElementById('publicMenu').classList.add('hidden');
-            document.querySelectorAll('[id^="public"][id$="View"]').forEach(el => el.classList.add('hidden'));
-
-            if (view === 'carousel') {
-                loadPublicCarousel();
+            if(view === 'carousel') {
                 document.getElementById('publicCarouselView').classList.remove('hidden');
-                playBackgroundMusic();
-            } else if (view === 'grid') {
-                loadPublicGrid();
+                loadPublicCarousel();
+            } else {
                 document.getElementById('publicGridView').classList.remove('hidden');
-                playBackgroundMusic();
+                loadPublicGrid();
             }
         }
 
         function backToPublicMenu() {
             document.getElementById('publicMenu').classList.remove('hidden');
-            document.querySelectorAll('[id^="public"][id$="View"]').forEach(el => el.classList.add('hidden'));
-            publicCurrentSlide = 0;
-            stopBackgroundMusic();
+            document.getElementById('publicCarouselView').classList.add('hidden');
+            document.getElementById('publicGridView').classList.add('hidden');
         }
 
         function loadPublicCarousel() {
             const carousel = document.getElementById('publicCarousel');
             carousel.innerHTML = '';
             publicCurrentSlide = 0;
-
+            
             if (photos.length === 0) {
-                carousel.innerHTML = '<div class="empty-state"><h3>Sin fotos</h3></div>';
+                carousel.innerHTML = '<div class="empty-state"><h3>Sin fotos compartidas</h3></div>';
                 return;
             }
 
@@ -3456,14 +3455,13 @@
                 }
                 carousel.appendChild(slide);
             });
-
             updatePublicCarousel();
         }
 
         function updatePublicCarousel() {
             const slides = document.querySelectorAll('#publicCarousel .carousel-slide');
             slides.forEach(s => s.classList.remove('active'));
-            if (slides[publicCurrentSlide]) slides[publicCurrentSlide].classList.add('active');
+            if(slides[publicCurrentSlide]) slides[publicCurrentSlide].classList.add('active');
 
             document.getElementById('publicPrevBtn').disabled = publicCurrentSlide === 0;
             document.getElementById('publicNextBtn').disabled = publicCurrentSlide === slides.length - 1;
@@ -3497,47 +3495,38 @@
         function loadPublicGrid() {
             const container = document.getElementById('publicGridContainer');
             container.innerHTML = '';
-
+            
             if (photos.length === 0) {
-                container.innerHTML = '<div class="empty-state"><h3>Sin fotos</h3></div>';
+                container.innerHTML = '<div class="empty-state"><h3>Sin fotos compartidas</h3></div>';
                 return;
             }
 
-            photos.forEach((photo, index) => {
+            photos.forEach((photo) => {
                 const item = document.createElement('div');
                 item.className = 'grid-item';
-                if (photo.type === 'video') {
-                    item.innerHTML = `
-                        <video src="${photo.image}" style="width: 100%; height: 250px; object-fit: cover;"></video>
-                        <div class="grid-info">
-                            <div class="grid-title">🎥 ${photo.title}</div>
-                            <div class="grid-date">${new Date(photo.date).toLocaleDateString('es-ES', {month: 'short', day: 'numeric'})}</div>
-                        </div>
-                    `;
-                } else {
-                    item.innerHTML = `
-                        <img src="${photo.image}" alt="${photo.title}" class="grid-image">
-                        <div class="grid-info">
-                            <div class="grid-title">📸 ${photo.title}</div>
-                            <div class="grid-date">${new Date(photo.date).toLocaleDateString('es-ES', {month: 'short', day: 'numeric'})}</div>
-                        </div>
-                    `;
-                }
+                // Renderizado simplificado para grid público
+                const mediaHTML = photo.type === 'video' 
+                    ? `<video src="${photo.image}" style="width:100%; height:200px; object-fit:cover;"></video>`
+                    : `<img src="${photo.image}" class="grid-image" style="height:200px;">`;
+                
+                item.innerHTML = `
+                    ${mediaHTML}
+                    <div class="grid-info">
+                        <div class="grid-title">${photo.title}</div>
+                        <div class="grid-date">${new Date(photo.date).toLocaleDateString()}</div>
+                    </div>
+                `;
                 container.appendChild(item);
             });
         }
 
-        // ===== INICIALIZACIÓN PRINCIPAL =====
-        loadPhotos();
-
-        // VERIFICAR ACCESO PÚBLICO PRIMERO
+        // ===== INICIALIZACIÓN =====
+        // Verificar modo público
         const urlParams = new URLSearchParams(window.location.search);
         const publicId = urlParams.get('public');
 
         if (publicId) {
-            // ACCESO PÚBLICO - Sin login requerido
-            console.log('🔓 Detectado parámetro público:', publicId);
-            
+            console.log("Modo Público Activado");
             const publicData = localStorage.getItem('public_' + publicId);
             
             if (publicData) {
@@ -3545,42 +3534,33 @@
                     const albumData = JSON.parse(publicData);
                     photos = albumData.photos || [];
                     
-                    console.log('✅ Datos públicos encontrados');
-                    console.log('✅ Fotos:', photos.length);
+                    document.getElementById('loginContainer').classList.add('hidden');
+                    document.getElementById('mainApp').classList.add('hidden');
+                    document.getElementById('publicAlbumContainer').classList.remove('hidden');
                     
-                    // Ocultar UI de login
-                    document.getElementById('loginContainer').style.display = 'none';
-                    document.getElementById('mainApp').style.display = 'none';
-                    document.getElementById('publicAlbumContainer').style.display = 'block';
+                    // Música
+                    if(albumData.music) {
+                        localStorage.setItem('backgroundMusic', albumData.music); // Temporal
+                        playBackgroundMusic();
+                    }
+
+                    // Relojes públicos
+                    setInterval(updatePublicHeartClock, 1000);
+                    displayPublicRoses();
                     
-                    // Inicializar vistas públicas
-                    setTimeout(() => {
-                        updatePublicHeartClock();
-                        displayPublicRoses();
-                        setInterval(updatePublicHeartClock, 1000);
-                        setInterval(displayPublicRoses, 60000);
-                        
-                        console.log('✅ Álbum público listo para ver');
-                    }, 100);
-                    
-                } catch (error) {
-                    console.error('❌ Error:', error);
-                    alert('❌ No se pudo cargar el álbum público.');
+                } catch(e) {
+                    alert("Álbum corrupto");
+                    window.location.href = window.location.pathname;
                 }
             } else {
-                console.error('❌ Álbum público no existe:', publicId);
-                alert('❌ Este enlace ya no es válido o ha expirado.');
+                alert("Este álbum no existe o es de otro dispositivo.");
+                window.location.href = window.location.pathname;
             }
         } else {
-            // LOGIN NORMAL - Intentar restaurar sesión
-            console.log('🔐 Modo login normal');
-            const sessionRestored = restoreSession();
-            if (sessionRestored) {
-                console.log('✅ Sesión restaurada');
-            } else {
-                console.log('ℹ️ Sesión no encontrada, mostrar login');
-            }
+            // Modo Privado
+            restoreSession();
         }
+
     </script>
 </body>
 </html>
