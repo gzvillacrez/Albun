@@ -1850,6 +1850,44 @@
         let backgroundMusic = null;
         let audioPlayer = null;
 
+        // RESTAURAR SESIÓN AL CARGAR
+        function restoreSession() {
+            const savedUser = sessionStorage.getItem('currentUser');
+            const savedPhotos = localStorage.getItem('sharedPhotos');
+            
+            if (savedUser && savedPhotos) {
+                currentUser = savedUser;
+                photos = JSON.parse(savedPhotos);
+                
+                // Mostrar app, ocultar login
+                document.getElementById('loginContainer').classList.add('hidden');
+                document.getElementById('mainApp').classList.remove('hidden');
+                document.getElementById('mainMenu').classList.remove('hidden');
+                document.getElementById('userName').textContent = currentUser;
+                
+                console.log('✅ Sesión restaurada para:', currentUser);
+                return true;
+            }
+            return false;
+        }
+
+        // GUARDAR SESIÓN ACTUAL
+        function saveSession() {
+            if (currentUser) {
+                sessionStorage.setItem('currentUser', currentUser);
+                localStorage.setItem('sharedPhotos', JSON.stringify(photos));
+                savePhotosWithFolders();
+                console.log('✅ Sesión guardada');
+            }
+        }
+
+        // Guardar sesión cada 5 segundos
+        setInterval(saveSession, 5000);
+
+        // Guardar sesión antes de cerrar/recargar
+        window.addEventListener('beforeunload', saveSession);
+        window.addEventListener('pagehide', saveSession);
+
         // RELOJ DE CORAZÓN
         function updateHeartClock() {
             const now = new Date();
@@ -1963,10 +2001,16 @@
             document.getElementById('userName').textContent = username;
             loadPhotos();
             
+            // GUARDAR SESIÓN
+            sessionStorage.setItem('currentUser', currentUser);
+            localStorage.setItem('sharedPhotos', JSON.stringify(photos));
+            
             document.getElementById('loginContainer').classList.add('hidden');
             document.getElementById('mainApp').classList.remove('hidden');
             document.getElementById('mainMenu').classList.remove('hidden');
             document.getElementById('loginForm').reset();
+            
+            console.log('✅ Sesión iniciada y guardada para:', currentUser);
         }
 
         function logout() {
@@ -1974,10 +2018,16 @@
                 currentUser = null;
                 currentSlide = 0;
                 
+                // LIMPIAR SESIÓN
+                sessionStorage.removeItem('currentUser');
+                stopBackgroundMusic();
+                
                 document.getElementById('loginContainer').classList.remove('hidden');
                 document.getElementById('mainApp').classList.add('hidden');
                 document.getElementById('loginForm').reset();
                 document.getElementById('username').focus();
+                
+                console.log('✅ Sesión cerrada');
             }
         }
 
@@ -2499,6 +2549,9 @@
             window.open(shareLink, '_blank');
         }
 
+
+        // INTENTAR RESTAURAR SESIÓN AL RECARGAR
+        const sessionRestored = restoreSession();
 
         // ===== VERIFICAR ACCESO PÚBLICO =====
         const urlParams = new URLSearchParams(window.location.search);
